@@ -32,10 +32,9 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
       ),
-      
-      body: const MapWidget(), //Can be replaced with desired widget to test local resource
+
+      body: const MapWidget(),
+      //Can be replaced with desired widget to test local resource
     );
   }
 }
-
-
