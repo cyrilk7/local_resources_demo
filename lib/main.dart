@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:local_resources_demo/functions/geolocator.dart';
 
+import '../functions/text_storage.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -28,14 +30,23 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(title),
-      ),
-      
-      body: const MapWidget(), //Can be replaced with desired widget to test local resource
-    );
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text(title),
+        ),
+        body: ListView(children: [
+          ElevatedButton(
+              child:
+                  Text('View Visited Locations', textAlign: TextAlign.center),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => FlutterDemo(storage: CounterStorage()),
+                ));
+              }),
+          const MapWidget(),
+        ])
+        //const MapWidget(),
+        //Can be replaced with desired widget to test local resource
+        );
   }
 }
-
-
